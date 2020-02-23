@@ -1,0 +1,24 @@
+{
+    "network": {
+        "name": "6697",
+        "host": "irc.6697.co.uk"
+    },
+    "listener": {
+        "address": "0.0.0.0",
+        "port": 6697,
+        "ssl": {
+            "key": "etc/key.pem",
+            "cert": "etc/cert.pem"
+        }
+    },
+    "servers": [
+        {
+            "host":"10.0.0.5",
+            "port":6697,
+            "webirc":{
+                "username": "irclb",
+                "password": "superSecretPassword:)"
+            }
+        }
+    ]
+}
