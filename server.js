@@ -1,10 +1,9 @@
 var tls = require('tls');
 var fs = require('fs');
-var config = require('./config.json');
 var dns = require('dns');
 var commandos = require('commandos');
 var cliArgs = commandos.parse(process.argv.join(" "));
-
+var config = require( (cliArgs.config||'./config.json') );
 function reverseLookup(ip, callback) {
     dns.reverse(ip, function (err, domains) {
         if (err != null)
