@@ -1,3 +1,4 @@
+#!/usr/bin/nodejs
 var tls = require('tls');
 var fs = require('fs');
 var dns = require('dns');

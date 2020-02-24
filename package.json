@@ -1,82 +1,77 @@
 {
-    "_args": [
-        [
-            "irclb"
-        ]
-    ],
-    "_from": "irclb@latest",
-    "_id": "irclb@0.0.1",
-    "_inCache": true,
-    "_installable": true,
-    "_location": "/irclb",
-    "_npmUser": {
-        "email": "MrRee@6697.co.uk",
-        "name": "Mr. Ree"
-    },
-    "_phantomChildren": {},
-    "_requested": {
-        "name": "irclb",
-        "raw": "irclb",
-        "rawSpec": "",
-        "scope": null,
-        "spec": "latest",
-        "type": "tag"
-    },
-    "_requiredBy": [
-        "#USER"
-    ],
-    "_shrinkwrap": null,
-    "_spec": "irclb",
-    "_where": "",
-    "author": {
-        "email": "MrRee@6697.co.uk",
-        "name": "Mr. Ree",
-        "url": "https://users.6697-content.network/~mrree/"
-    },
-    "bin": {
-        "irclb": "server.js"
-    },
-    "bugs": {
-        "url": "https://github.com/6697net/irclb/issues"
-    },
-    "dependencies": {
-        "commandos": "^0.5.1",
-        "dns": "^0.2.2",
-        "fs": "0.0.1-security",
-        "tls": "0.0.1"
-    },
-    "description": "Internet Relay Chat (IRC) load balancer",
-    "directories": {},
-    "engines": {
-        "node": ">= 0.4.0"
-    },
-    "homepage": "https://github.com/6697net/irclb",
-    "keywords": [
-        "irc",
-        "load balancer",
-        "irclb",
-        "irc load balancer"
-    ],
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "http://www.opensource.org/licenses/MIT"
-        }
-    ],
-    "maintainers": [
-        {
-            "name": "Mr. Ree",
-            "email": "MrRee@6697.co.uk"
-        }
-    ],
+  "_args": [
+    [
+      "irclb"
+    ]
+  ],
+  "_from": "irclb@latest",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/irclb",
+  "_npmUser": {
+    "email": "MrRee@6697.co.uk",
+    "name": "Mr. Ree"
+  },
+  "_phantomChildren": {},
+  "_requested": {
     "name": "irclb",
-    "optionalDependencies": {},
-    "readme": "# irclb\n\n>An IRC Load balancer written in nodejs.",
-    "readmeFilename": "README.md",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/6697net/irclb"
-    },
-    "scripts": {},
-    "version": "0.0.1"
+    "raw": "irclb",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_shrinkwrap": null,
+  "_spec": "irclb",
+  "_where": "",
+  "author": "Mr. Ree <MrRee@6697.co.uk> (https://users.6697-content.network/~mrree/)",
+  "bin": {
+    "irclb": "server.js"
+  },
+  "bugs": {
+    "url": "https://github.com/6697net/irclb/issues"
+  },
+  "dependencies": {
+    "commandos": "^0.5.1",
+    "dns": "^0.2.2",
+    "fs": "0.0.1-security",
+    "tls": "0.0.1"
+  },
+  "description": "Internet Relay Chat (IRC) load balancer",
+  "directories": {},
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "homepage": "https://github.com/6697net/irclb",
+  "keywords": [
+    "irc",
+    "load balancer",
+    "irclb",
+    "irc load balancer"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "maintainers": [
+    "Mr. Ree <MrRee@6697.co.uk>"
+  ],
+  "name": "irclb",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6697net/irclb.git"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "version": "0.0.1",
+  "main": "server.js",
+  "devDependencies": {},
+  "license": "MIT"
 }
