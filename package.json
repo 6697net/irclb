@@ -69,7 +69,7 @@
             "email": "MrRee@6697.co.uk"
         }
     ],
-    "name": "sharenode",
+    "name": "irclb",
     "optionalDependencies": {},
     "readme": "# irclb\n\n>An IRC Load balancer written in nodejs.",
     "readmeFilename": "README.md",
