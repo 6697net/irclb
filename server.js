@@ -1,5 +1,6 @@
 #!/usr/bin/nodejs
 var tls = require('tls');
+var net = require('net');
 var fs = require('fs');
 var dns = require('dns');
 var commandos = require('commandos');
@@ -27,6 +28,19 @@ var options = {
     cert: fs.readFileSync(config.listener.ssl.cert)
 };
 
+
+
+var plainTextServer = net.createServer(function(socket) {
+	socket.write(':irc.lb NOTICE * :*** \002NON-SSL CONNECTIONS ARE NOT SUPPORTED! PLEASE CONNECT WITH SSL TO PORT ' + config.listener.port + '\002\r\n');
+	return socket.destroy();
+});
+
+plainTextServer.listen((config.listener.plainPort||6667), config.listener.address);
+
+plainTextServer.on("error", function(error){
+    console.log(error);
+});
+
 function doConnect(socket, userStr, nickStr, capStr) {
     var nick = nickStr.toString().match(/^NICK (.*?)(\s|$)/i)[1];
 
@@ -37,11 +51,11 @@ function doConnect(socket, userStr, nickStr, capStr) {
     var serverInfo = config.servers.random();
     var csocket = tls.connect(serverInfo.port, serverInfo.host, options, () => {
         console.log('client connected', csocket.authorized ? 'authorized' : 'unauthorized');
-        socket.write(":irc.lb NOTICE * :You are now connected to the IRCd @ " + serverInfo.host + ":" + serverInfo.port + "\r\n");
+        socket.write(":irc.lb NOTICE * :*** You are now connected to the IRCd @ " + serverInfo.host + ":" + serverInfo.port + "\r\n");
         reverseLookup(socket.remoteAddress, function (err, cHost) {
             if(cliArgs.debug)
             {
-                socket.write(":irc.lb NOTICE * :Found your host " + cHost + ".\r\n");
+                socket.write(":irc.lb NOTICE * :*** Found your host " + cHost + ".\r\n");
             }
             csocket.write("WEBIRC " + serverInfo.webirc.password + " " + serverInfo.webirc.username + " " + cHost + " " + socket.remoteAddress + "\r\n");
             if (capStr) {
@@ -85,10 +99,10 @@ var server = tls.createServer(options, function (socket) {
     var string_nick;
     var string_cap;
     var connected;
-    socket.write(":irc.lb NOTICE * :You have connected to an irclb instance for " + config.network.name + " at " + config.network.host + ". Please wait while we connect you to the next available IRC daemon.\r\n");
+    socket.write(":irc.lb NOTICE * :*** You have connected to an irclb instance for " + config.network.name + " at " + config.network.host + ". Please wait while we connect you to the next available IRC daemon.\r\n");
     if(cliArgs.debug)
     {
-        socket.write(":irc.lb NOTICE * :This daemon is running debug mode, all commands, private messages, channel messages, and passwords are being output to the terminal.\r\n");
+        socket.write(":irc.lb NOTICE * :*** \002This daemon is running debug mode, all commands, private messages, channel messages, and passwords are being output to the terminal.\002\r\n");
     }
     socket.on('data', function (data) {
         data.toString().split("\r\n").forEach(function (message) {
